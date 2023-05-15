@@ -1,0 +1,423 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            font-family: 'Segoe UI';
+        }
+
+        .container1, .container2 {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .navbar {
+            top: 40px;
+            right: 250px;
+            position: absolute;
+            z-index: 100;
+            //border:1px solid white;
+            display: flex;
+        }
+
+        .curve {
+            position: relative;
+        }
+
+
+        .navbar li {
+            list-style-type: none;
+            padding: 20px 20px;
+            color: white;
+            font-weight: 100;
+            font-size: 30px;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .blog-card {
+            //border: 1px solid black;
+            padding: 10px;
+            margin: 15px auto;
+        }
+
+            .blog-card h2 {
+                font-size: 30px;
+                font-weight: 100;
+            }
+
+            .blog-card p {
+                font-size: 18px;
+                line-height: 30px;
+                margin-top: 20px;
+            }
+
+            
+
+            .blog-card li{
+                color:black;
+                font-size:18px;
+                font-weight:400;
+                margin-left:30px;
+                margin-top:10px;
+                margin-bottom:10px;
+                margin-right:0px;
+                line-height:30px;
+            }
+
+            .blog-card img{
+                width:1000px;
+                //object-fit:contain;
+                //height:100px;
+                margin-left:30px;
+            }
+
+            .sub-heading{
+                font-weight:500;
+            }
+
+            .note{
+                background-color:lightblue;
+                padding:10px 5px;
+            }
+
+            .image_with_issues{
+                height:500px;
+                //border:10px solid black;
+                object-fit:cover;
+                
+            }
+
+        .video-container {
+            margin: auto;
+            width: 800px;
+            
+        }
+
+        .video-demo {
+            width: 100%;
+            height: 100%;
+            margin: auto;
+            //border: 1px solid black;
+        }
+
+
+        @media only screen and (max-width:500px) {
+
+            .video-container {
+                //margin: auto;
+                width: 500px;
+               
+            }
+
+
+
+            .video-demo {
+                width: 90%;
+                height: 90%;
+                border: 1px solid black;
+            }
+        }
+
+        .toc {
+            border: 1px solid black;
+            width: 540px;
+            margin: 25px 0px;
+            padding:10px 0px;
+        }
+
+        .toc p{
+            font-weight:700;
+        }
+
+            .toc span {
+                font-size:17px;
+                display:inline-block;
+                padding:2px;
+            }
+
+
+        .ps-script {
+            background: black !important;
+            color: white;
+            margin-top: 30px;
+            height: 40px;
+            font-size: 20px;
+            width: 900px;
+            padding: 0px 0px !important;
+        }
+
+        .ps-script p{
+            margin-left:10px;
+        }
+
+        
+
+            .ps-script span {
+                display: inline-block;
+                float: right;
+                font-size: 16px;
+                margin-right: 10px;
+                
+                cursor: pointer;
+            }
+
+
+        @media only screen and (max-width:500px) {
+            .ps-script {
+                background: black;
+                color: white;
+                margin-top: 30px;
+                height: 45px;
+                font-size: 20px;
+                width: 400px;
+                height: auto;
+            }
+ 
+    </style>
+
+</head>
+<body>
+    <div class="container-fluid container1">
+        <ul class="navbar">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <svg class="curve" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#0099ff" fill-opacity="1" d="M0,160L30,170.7C60,181,120,203,180,186.7C240,171,300,117,360,85.3C420,53,480,43,540,53.3C600,64,660,96,720,133.3C780,171,840,213,900,245.3C960,277,1020,299,1080,288C1140,277,1200,235,1260,192C1320,149,1380,107,1410,85.3L1440,64L1440,0L1410,0C1380,0,1320,0,1260,0C1200,0,1140,0,1080,0C1020,0,960,0,900,0C840,0,780,0,720,0C660,0,600,0,540,0C480,0,420,0,360,0C300,0,240,0,180,0C120,0,60,0,30,0L0,0Z"></path></svg>
+    </div>
+
+
+    <div class="container blog-card">
+
+        <h2>How to Work with Files and Folders Using PowerShell?</h2>
+        <div class="toc">
+            <p>Table of Contents</p>
+
+            <span><a href="#1" style="margin-left:30px;">How to create a folder?</a></span><br />
+            <span><a href="#22" style="margin-left:30px;">How to create a file? </a></span><br />
+
+            <span><a href="#2" style="margin-left:30px;">How to add multiple files? </a></span><br />
+
+            <span><a href="#3" style="margin-left:30px;">How to write into a file? </a></span><br />
+            <span><a href="#4" style="margin-left:30px;">How to open a file?</a></span><br />
+            <span><a href="#5" style="margin-left:30px;">How to get a file's content?</a></span><br />
+            <span><a href="#6" style="margin-left:30px;">how to overwrite existing file?</a></span><br />
+            <span><a href="#7" style="margin-left:30px;">how to delete a file?</a></span><br />
+            <span><a href="#77" style="margin-left:30px;">how to delete multiple files?</a></span><br />
+            <span><a href="#8" style="margin-left:30px;">how to delete a folder?</a></span><br />
+
+
+        </div>
+
+        <br />
+
+        <h2 class="sub-heading" id="1">How to create a folder? </h2>
+           <div class="ps-script">
+            <span onclick="copyToClipboard(document.querySelector('.ps_script').innerText)">Copy</span>
+            <p class="ps_script">
+                New-Item -ItemType Directory -Path d:/new_folder_using_powershell
+
+            </p>
+
+
+        </div>
+
+        <img src="ps_blog1_videos/1.gif" height="300" style="margin-left:0px!important" />
+
+        
+
+        <h2 class="sub-heading" id="22">How to create a file? </h2>
+                <div class="ps-script">
+            <span onclick="copyToClipboard(document.querySelector('.psoo').innerText)">Copy</span>
+            <p class="ps_script psoo">
+                New-Item File1.txt 
+
+            </p>
+
+
+        </div>
+
+        <img src="ps_blog1_videos/2.gif" height="300" style="margin-left:0px!important" />
+
+        
+
+        <br />
+
+
+        <h2 class="sub-heading" id="2">How to add multiple files? </h2>
+          <div class="ps-script ">
+            <span onclick="copyToClipboard(document.querySelector('.ps1').innerText)">Copy</span>
+            <p class="ps_script ps1">
+                (0..10) | ForEach-Object {New-Item File$_.txt}
+            </p>
+
+
+        </div>
+
+        <img src="ps_blog1_videos/3.gif" height="500" style="margin-left:0px!important" />
+
+
+        
+
+        <br />
+        <h2 class="sub-heading" id="3">How to write into a file? </h2>
+        
+        <div class="ps-script">
+            <span onclick="copyToClipboard(document.querySelector('.ps2').innerText)">Copy</span>
+            <p class="ps_script ps2">
+                Add-Content File2.txt -Value "hello world"
+            </p>
+
+
+        </div>
+
+        <img src="ps_blog1_videos/4.gif" height="300" style="margin-left:0px!important" />
+
+
+        
+
+
+
+
+
+        <h2 class="sub-heading" id="4">How to open a file? </h2>
+        
+        <div class="ps-script">
+            <span onclick="copyToClipboard(document.querySelector('.ps3').innerText)">Copy</span>
+            <p class="ps_script ps3">
+                Invoke-item File1.txt
+
+            </p>
+
+
+
+
+        </div>
+
+        <img src="ps_blog1_videos/5.gif" height="500" style="margin-left:0px!important" />
+
+
+        
+
+
+
+
+
+
+
+        <h2 class="sub-heading" id="5">How to get a file's content? </h2>
+         <div class="ps-script ">
+            <span onclick="copyToClipboard(document.querySelector('.ps4').innerText)">Copy</span>
+            <p class="ps_script ps4">
+                Get-Content File1.txt
+
+            </p>
+        </div>
+
+        <img src="ps_blog1_videos/6.gif" height="300" style="margin-left:0px!important" />
+
+
+
+
+        <br />
+
+
+        <h2 class="sub-heading" id="6">How to overwrite an existing file? </h2>
+         <div class="ps-script ">
+            <span onclick="copyToClipboard(document.querySelector('.ps5').innerText)">Copy</span>
+            <p class="ps_script ps5">
+                New-Item File1.txt -Force
+
+            </p>
+        </div>
+
+        <img src="ps_blog1_videos/7.gif" height="400" style="margin-left:0px!important" />
+
+
+        
+
+        <br />
+
+        <h2 class="sub-heading" id="7">How to delete file? </h2>
+         <div class="ps-script ">
+            <span onclick="copyToClipboard(document.querySelector('.ps6').innerText)">Copy</span>
+            <p class="ps_script ps6">
+                Remove-Item File1.txt
+
+            </p>
+        </div>
+
+        <img src="ps_blog1_videos/8.gif" height="300" style="margin-left:0px!important" />
+
+
+        
+
+        <br />
+
+
+        <h2 class="sub-heading" id="77">How to delete multiple files? </h2>
+        
+        <div class="ps-script ">
+            <span onclick="copyToClipboard(document.querySelector('.ps7').innerText)">Copy</span>
+            <p class="ps_script ps7">
+                Remove-Item *.txt
+
+            </p>
+        </div>
+
+        <img src="ps_blog1_videos/9.gif" height="300" style="margin-left:0px!important" />
+
+
+        
+
+        <br />
+
+        <h2 class="sub-heading" id="8">How to delete a folder? </h2>
+         <div class="ps-script ">
+            <span onclick="copyToClipboard(document.querySelector('.ps8').innerText)">Copy</span>
+            <p class="ps_script ps8">
+                Remove-Item [folder_name]
+
+            </p>
+        </div>
+
+        <img src="ps_blog1_videos/10.gif" height="300" style="margin-left:0px!important" />
+
+
+        
+
+        <br />
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <script>
+        function copyToClipboard(text) {
+            window.prompt("Use Ctrl+C", text)
+        }
+
+    </script>
+
+
+</body>
+</html>
