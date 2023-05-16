@@ -213,10 +213,10 @@
             <span><a href="#3" style="margin-left:30px;">How to write into a file? </a></span><br />
             <span><a href="#4" style="margin-left:30px;">How to open a file?</a></span><br />
             <span><a href="#5" style="margin-left:30px;">How to get a file's content?</a></span><br />
-            <span><a href="#6" style="margin-left:30px;">how to overwrite existing file?</a></span><br />
-            <span><a href="#7" style="margin-left:30px;">how to delete a file?</a></span><br />
-            <span><a href="#77" style="margin-left:30px;">how to delete multiple files?</a></span><br />
-            <span><a href="#8" style="margin-left:30px;">how to delete a folder?</a></span><br />
+            <span><a href="#6" style="margin-left:30px;">How to overwrite existing file?</a></span><br />
+            <span><a href="#7" style="margin-left:30px;">How to delete a file?</a></span><br />
+            <span><a href="#77" style="margin-left:30px;">How to delete multiple files of same type?</a></span><br />
+            <span><a href="#8" style="margin-left:30px;">How to delete a folder?</a></span><br />
 
 
         </div>
@@ -224,7 +224,7 @@
         <br />
 
         <h2 class="sub-heading" id="1">How to create a folder? </h2>
-           <div class="ps-script">
+        <div class="ps-script">
             <span onclick="copyToClipboard(document.querySelector('.ps_script').innerText)">Copy</span>
             <p class="ps_script">
                 New-Item -ItemType Directory -Path d:/new_folder_using_powershell
@@ -236,13 +236,18 @@
 
         <img src="ps_blog1_videos/1.gif" height="300" style="margin-left:0px!important" />
 
-        
+        <h3 style="font-weight:100;">How this code works?</h3>
+        <li>You are making use of <a href="#">New-Item</a> cmdlet to create a new item (in our case, it's a directory or folder)</li>
+        <li>Then pass in the item type value (Directory) to <code>-Itemtype</code> parameter</li>
+        <li>Finally specify the path (using <code>-Path</code> parameter) where you want the directory to be created. (In case you are already in the location where you want to create a folder, then you can execute the New-Item cmdlet without the -Path parameter as shown in the gif).</li>
+
+
 
         <h2 class="sub-heading" id="22">How to create a file? </h2>
-                <div class="ps-script">
+        <div class="ps-script">
             <span onclick="copyToClipboard(document.querySelector('.psoo').innerText)">Copy</span>
             <p class="ps_script psoo">
-                New-Item File1.txt 
+                New-Item File1.txt
 
             </p>
 
@@ -250,14 +255,18 @@
         </div>
 
         <img src="ps_blog1_videos/2.gif" height="300" style="margin-left:0px!important" />
+        <h3 style="font-weight:100;">How this code works?</h3>
+        <li>You are making use of <a href="#">New-Item</a> cmdlet to create a new item (in our case, it's a file).</li>
+        <li>Then pass in the name of the file (example: file.txt)</li>
+        <li>(You can also pass in the item type to the -ItemType parameter like this: <code>-ItemType "file"</code>, if necessary.</li>
 
-        
+
 
         <br />
 
 
         <h2 class="sub-heading" id="2">How to add multiple files? </h2>
-          <div class="ps-script ">
+        <div class="ps-script ">
             <span onclick="copyToClipboard(document.querySelector('.ps1').innerText)">Copy</span>
             <p class="ps_script ps1">
                 (0..10) | ForEach-Object {New-Item File$_.txt}
@@ -268,12 +277,16 @@
 
         <img src="ps_blog1_videos/3.gif" height="500" style="margin-left:0px!important" />
 
+        <h3 style="font-weight:100;">How this code works?</h3>
+        <li>You are making use of <a href="#">ForEach-Object</a> cmdlet and running it for the limit: 0..10.</li>
+        <li>For every iteration, you create a new file using <a href="#">New-Item </a>cmdlet.</li>
+        <li>Finally, you pass in the iterator ($_.) as a part of the file name: File$_.txt to distinguish between the files being created.</li>
 
-        
+
 
         <br />
         <h2 class="sub-heading" id="3">How to write into a file? </h2>
-        
+
         <div class="ps-script">
             <span onclick="copyToClipboard(document.querySelector('.ps2').innerText)">Copy</span>
             <p class="ps_script ps2">
@@ -284,16 +297,20 @@
         </div>
 
         <img src="ps_blog1_videos/4.gif" height="300" style="margin-left:0px!important" />
+        <h3 style="font-weight:100;">How this code works?</h3>
+        <li>You are making use of <a href="#">Add-Content</a> and pass in the file name to it (for which you are going to add the content).</li>
+        <li>Then pass in the content itself to the <code> -Value </code> parameter (example: "Hello World"). </li>
+
+        <br />
 
 
-        
 
 
 
 
 
         <h2 class="sub-heading" id="4">How to open a file? </h2>
-        
+
         <div class="ps-script">
             <span onclick="copyToClipboard(document.querySelector('.ps3').innerText)">Copy</span>
             <p class="ps_script ps3">
@@ -308,8 +325,13 @@
 
         <img src="ps_blog1_videos/5.gif" height="500" style="margin-left:0px!important" />
 
+        <h3 style="font-weight:100;">How this code works?</h3>
+        <li>You pass in the name of the file (which you wish to open) to the <a href="#">Invoke-item</a> cmdlet</li>
+        <li>The file opens up when you execute the cmdlet </li>
 
-        
+        <br />
+
+
 
 
 
@@ -318,7 +340,7 @@
 
 
         <h2 class="sub-heading" id="5">How to get a file's content? </h2>
-         <div class="ps-script ">
+        <div class="ps-script ">
             <span onclick="copyToClipboard(document.querySelector('.ps4').innerText)">Copy</span>
             <p class="ps_script ps4">
                 Get-Content File1.txt
@@ -328,6 +350,11 @@
 
         <img src="ps_blog1_videos/6.gif" height="300" style="margin-left:0px!important" />
 
+        <h3 style="font-weight:100;">How this code works?</h3>
+        <li>You pass in the name of the file (which you wish to read) to the <a href="#">Get-Content</a> cmdlet</li>
+        <li>The contents of the file get displayed when you execute the cmdlet </li>
+
+        <br />
 
 
 
@@ -335,7 +362,7 @@
 
 
         <h2 class="sub-heading" id="6">How to overwrite an existing file? </h2>
-         <div class="ps-script ">
+        <div class="ps-script ">
             <span onclick="copyToClipboard(document.querySelector('.ps5').innerText)">Copy</span>
             <p class="ps_script ps5">
                 New-Item File1.txt -Force
@@ -345,13 +372,18 @@
 
         <img src="ps_blog1_videos/7.gif" height="400" style="margin-left:0px!important" />
 
-
-        
+        <h3 style="font-weight:100;">How this code works?</h3>
+        <li>You pass in the <code>Force</code> parameter as you create the new file using the <a href="#">New-Item</a> cmdlet</li>
+        <li>Doing so will overwrite the existing file with the new one you just created. </li>
 
         <br />
 
-        <h2 class="sub-heading" id="7">How to delete file? </h2>
-         <div class="ps-script ">
+
+
+        <br />
+
+        <h2 class="sub-heading" id="7">How to delete a file? </h2>
+        <div class="ps-script ">
             <span onclick="copyToClipboard(document.querySelector('.ps6').innerText)">Copy</span>
             <p class="ps_script ps6">
                 Remove-Item File1.txt
@@ -361,14 +393,19 @@
 
         <img src="ps_blog1_videos/8.gif" height="300" style="margin-left:0px!important" />
 
+        <h3 style="font-weight:100;">How this code works?</h3>
+        <li>You pass in the file name to the <a href="#">Remove-Item</a> cmdlet</li>
 
-        
 
         <br />
 
 
-        <h2 class="sub-heading" id="77">How to delete multiple files? </h2>
-        
+
+        <br />
+
+
+        <h2 class="sub-heading" id="77">How to delete multiple files of same type? </h2>
+
         <div class="ps-script ">
             <span onclick="copyToClipboard(document.querySelector('.ps7').innerText)">Copy</span>
             <p class="ps_script ps7">
@@ -378,14 +415,20 @@
         </div>
 
         <img src="ps_blog1_videos/9.gif" height="300" style="margin-left:0px!important" />
+        <h3 style="font-weight:100;">How this code works?</h3>
+        <li>You pass in the PowerShell wildcard * (which represents everything) along with the file extension to the <code>Remove-Item</code>cmdlet.</li>
+        <li>The above command removes all the files with a .txt extension available within the folder_usig_powershell folder.</li>
+
+        <br />
 
 
-        
+
+
 
         <br />
 
         <h2 class="sub-heading" id="8">How to delete a folder? </h2>
-         <div class="ps-script ">
+        <div class="ps-script ">
             <span onclick="copyToClipboard(document.querySelector('.ps8').innerText)">Copy</span>
             <p class="ps_script ps8">
                 Remove-Item [folder_name]
@@ -394,9 +437,14 @@
         </div>
 
         <img src="ps_blog1_videos/10.gif" height="300" style="margin-left:0px!important" />
+        <h3 style="font-weight:100;">How this code works?</h3>
+        <li>You pass in the folder name to the <a href="#">Remove-Item</a> cmdlet</li>
 
 
-        
+        <br />
+
+
+
 
         <br />
 
